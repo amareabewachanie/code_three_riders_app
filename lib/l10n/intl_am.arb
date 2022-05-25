@@ -1,0 +1,12 @@
+{
+
+  "pushMessageBody":"አዲስ የጉዞ ጥሪ መጥቶልዎታል",
+  "pushMessageTitle":"አዲስ የጉዞ ጥሪ",
+  "languageAmharic": "አማረኛ",
+  "languageEnglish": "እንግሊዘኛ",
+  "language": "Language",
+  "from": "መንሻ",
+  "to": "መድረሻ",
+  "requestARide": "ትራንስፖርት ይጠይቁ?",
+  "loginAsAUser": "እንደ ተሳፋሪ ይግቡ"
+}

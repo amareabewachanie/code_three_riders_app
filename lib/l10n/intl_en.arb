@@ -1,0 +1,11 @@
+{
+  "pushMessageBody":"Hello, you have a ride request",
+  "pushMessageTitle":"New Trip Request",
+  "languageAmharic": "Amharic",
+  "languageEnglish": "English",
+  "language": "ቋንቋ",
+  "from": "From",
+  "to": "To",
+  "requestARide": "Request A Ride?",
+  "loginAsAUser": "Login As A User"
+}
