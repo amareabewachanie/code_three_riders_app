@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:riders_app/models/trips_history_model.dart';
 
 import '../models/directions.dart';
 
 class AppInfo extends ChangeNotifier{
 Directions? userPickUpLocation, userDropOffLocation;
-Locale _currentLocal= Locale("en");
+Locale _currentLocal= Locale("am");
 Locale get currentLocal => _currentLocal;
 List<String> historyTripKeysList=[];
 List<TripsHistoryModel> listOfTripHistories=[];

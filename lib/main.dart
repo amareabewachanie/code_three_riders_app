@@ -10,26 +10,27 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  AppInfo contextData=AppInfo();
   runApp(MyApp(
       child: ChangeNotifierProvider(
         create: (context)=>AppInfo(),
-        child: MaterialApp(
-          locale: contextData.currentLocal,
-          localizationsDelegates:const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          title: 'Flutter Demo',
-          theme: ThemeData(
-              primarySwatch: Colors.blue
-          ),
-          home:const MySplashScreen(),
-          debugShowCheckedModeBanner: false,
-        ),
+        builder: (context,provider){
+          return MaterialApp(
+                locale: Provider.of<AppInfo>(context,listen: true).currentLocal,
+                localizationsDelegates:const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                title: 'Flutter Demo',
+                theme: ThemeData(
+                    primarySwatch: Colors.blue
+                ),
+                home: const MySplashScreen(),
+                debugShowCheckedModeBanner: false,
+              );
+        },
       )
   ));
 }

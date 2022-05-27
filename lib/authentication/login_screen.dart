@@ -137,14 +137,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ToggleSwitch(
                 activeBgColor: const [Colors.green,Colors.green],
                 inactiveBgColor: Colors.grey,
-                initialLabelIndex: 0,
+                initialLabelIndex: Provider.of<AppInfo>(context,listen: false).currentLocal==Locale("am")?0:1,
                 totalSwitches: 2,
                 labels: [S.of(context).languageAmharic, S.of(context).languageEnglish],
                 onToggle: (index) {
                   if(index ==0){
-                    context.read<AppInfo>().changeLanguagePreference("am");
+                    Provider.of<AppInfo>(context,listen: false).changeLanguagePreference("am");
                   }else{
-                    context.read<AppInfo>().changeLanguagePreference("en");
+                    Provider.of<AppInfo>(context,listen: false).changeLanguagePreference("en");
                   }
                 },
               ),

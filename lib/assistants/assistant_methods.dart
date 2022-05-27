@@ -118,11 +118,13 @@ static void  readTripsHistoryInformation(context){
     for(String key in tripKeys){
       FirebaseDatabase.instance.ref().child("All Ride Requests")
           .child(key).once().then((snap) {
+            if(snap.snapshot.value !=null){
               var tripHistory=TripsHistoryModel.fromSnapShot(snap.snapshot);
-              if((snap.snapshot.value as Map)["status"] =="ended"){
-                // Update-add each trip to history data list
-                Provider.of<AppInfo>(context,listen: false).updateAllTripHistoryData(tripHistory);
+                if((snap.snapshot.value as Map)["status"] =="ended"){
+                  // Update-add each trip to history data list
+                  Provider.of<AppInfo>(context,listen: false).updateAllTripHistoryData(tripHistory);
               }
+            }
       });
     }
 }

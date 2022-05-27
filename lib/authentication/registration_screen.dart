@@ -1,10 +1,15 @@
+import 'package:provider/provider.dart';
 import 'package:riders_app/splashScreen/splash_screen.dart';
 import 'package:riders_app/widget/progress_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
+import '../generated/l10n.dart';
 import '../global/global.dart';
+import '../infoHandler/app_info.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -215,7 +220,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       color: Colors.grey,
                       fontSize: 18
                   ),)
-              )
+              ),
+              const SizedBox(height: 20,),
+              ToggleSwitch(
+                activeBgColor: const [Colors.green,Colors.green],
+                inactiveBgColor: Colors.grey,
+                initialLabelIndex: Provider.of<AppInfo>(context,listen: false).currentLocal==Locale("am")?0:1,
+                totalSwitches: 2,
+                labels: [S.of(context).languageAmharic, S.of(context).languageEnglish],
+                onToggle: (index) {
+                  if(index ==0){
+                    Provider.of<AppInfo>(context,listen: false).changeLanguagePreference("am");
+                  }else{
+                    Provider.of<AppInfo>(context,listen: false).changeLanguagePreference("en");
+                  }
+                },
+              ),
             ],
           ),
         ),
